@@ -23,9 +23,16 @@
   <FILE>Laboratorio2.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <SETUP><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>26</LINE></SETUP>
-  <INIT_TMR0><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>73</LINE></INIT_TMR0>
-  <MAIN><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>50</LINE></MAIN>
-  <CONTADOR><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>67</LINE></CONTADOR>
+  <Tabla7seg><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>28</LINE></Tabla7seg>
+  <SETUP><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>30</LINE></SETUP>
+  <INIT_TMR0><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>121</LINE></INIT_TMR0>
+  <MAIN><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>70</LINE></MAIN>
+  <CONTADOR_DISPLAY><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>94</LINE></CONTADOR_DISPLAY>
+  <CONTADOR><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>88</LINE></CONTADOR>
+  <RESULTADO><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>112</LINE></RESULTADO>
+  <DELAY><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>129</LINE></DELAY>
+  <SUB_DELAY1><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>131</LINE></SUB_DELAY1>
+  <SUB_DELAY2><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>136</LINE></SUB_DELAY2>
+  <SUB_DELAY3><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>141</LINE></SUB_DELAY3>
  </LABELS>
 </ASSEMBLER_INFO>
