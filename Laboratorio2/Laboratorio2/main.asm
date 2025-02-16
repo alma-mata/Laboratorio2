@@ -25,7 +25,7 @@ OUT SPL, R16
 LDI R16, HIGH(RAMEND)
 OUT SPH, R16
 // Tabla de valores del display de 7 segmentos
-Tabla7seg: .db 0x18, 0xDD, 0x34, 0x94, 0xD1, 0x92, 0x12, 0xDC, 0x10, 0x90, 0x50, 0x10, 0x3A, 0x18, 0x32, 0x72
+Tabla7seg: .db 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10, 0x08, 0x03, 0x46, 0x21, 0x06, 0x0E
 // Configuracion inicial
 SETUP:
 	// Configuración del CLOCK en 1 MHz
@@ -60,7 +60,7 @@ SETUP:
 	STS		UCSR0B, R16
 
 	// Inicializacion de variables
-	LDI		R17, 0xFF			// Variable que guarda el estado de los botones
+	LDI		R17, 0x7F			// Variable que guarda el estado de los botones
 	LDI		R18, 0x00			// Variable para el contador de 4 bits
 	LDI		CONTADOR7, 0x00		// Contador display 7 segmentos
 
@@ -69,8 +69,8 @@ SETUP:
 // Loop Infinito
 MAIN:
 	// Bloque que espera el Overflow del timer
-	CALL	CONTADOR_DISPLAY
 	IN		R16, TIFR0
+	CALL	CONTADOR_DISPLAY
 	SBRS	R16, TOV0
 	RJMP	MAIN
 	SBI		TIFR0, TOV0		// Limpiar bandera de "overflow"
@@ -142,4 +142,4 @@ SUB_DELAY3:
 	DEC		R19
 	CPI		R19, 0
 	BRNE	SUB_DELAY3
-	RET					// Regrea a donde fue llamado
+	RET					// Regresa a donde fue llamado

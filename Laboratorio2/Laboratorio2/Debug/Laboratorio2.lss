@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm Fri Feb 14 18:43:01 2025
+AVRASM ver. 2.2.8  D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm Sat Feb 15 15:05:36 2025
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
 D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm(16): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc'
@@ -1056,14 +1056,14 @@ D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm(16): Includi
 000002 e008                      LDI R16, HIGH(RAMEND)
 000003 bf0e                      OUT SPH, R16
                                  // Tabla de valores del display de 7 segmentos
-000004 dd18
-000005 9434
-000006 92d1
-000007 dc12
-000008 9010
-000009 1050
-00000a 183a
-00000b 7232                      Tabla7seg: .db 0x18, 0xDD, 0x34, 0x94, 0xD1, 0x92, 0x12, 0xDC, 0x10, 0x90, 0x50, 0x10, 0x3A, 0x18, 0x32, 0x72
+000004 7940
+000005 3024
+000006 1219
+000007 7802
+000008 1000
+000009 0308
+00000a 2146
+00000b 0e06                      Tabla7seg: .db 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10, 0x08, 0x03, 0x46, 0x21, 0x06, 0x0E
                                  // Configuracion inicial
                                  SETUP:
                                  	// Configuración del CLOCK en 1 MHz
@@ -1098,7 +1098,7 @@ D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm(16): Includi
 000021 9300 00c1                 	STS		UCSR0B, R16
                                  
                                  	// Inicializacion de variables
-000023 ef1f                      	LDI		R17, 0xFF			// Variable que guarda el estado de los botones
+000023 e71f                      	LDI		R17, 0x7F			// Variable que guarda el estado de los botones
 000024 e020                      	LDI		R18, 0x00			// Variable para el contador de 4 bits
 000025 e050                      	LDI		CONTADOR7, 0x00		// Contador display 7 segmentos
                                  
@@ -1107,8 +1107,8 @@ D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm(16): Includi
                                  // Loop Infinito
                                  MAIN:
                                  	// Bloque que espera el Overflow del timer
-000026 940e 0039                 	CALL	CONTADOR_DISPLAY
-000028 b305                      	IN		R16, TIFR0
+000026 b305                      	IN		R16, TIFR0
+000027 940e 0039                 	CALL	CONTADOR_DISPLAY
 000029 ff00                      	SBRS	R16, TOV0
 00002a cffb                      	RJMP	MAIN
 00002b 9aa8                      	SBI		TIFR0, TOV0		// Limpiar bandera de "overflow"
