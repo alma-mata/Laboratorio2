@@ -118,7 +118,7 @@ CONTADOR_DISPLAY:
 	CALL	DELAY		// Pequeño delay de confirmación
 	IN		R22, PINC	// Se repite para confirmar el cambío de estado
 	CP		R17, R22	
-	BREQ	MAIN		// Regresa al inicio
+	BREQ	RESULTADO		// Regresa al inicio
 	MOV		R17, R22	// Guarda el estado viejo para futura comparación
 
 	// Lógica para aumento o decremento del contador
