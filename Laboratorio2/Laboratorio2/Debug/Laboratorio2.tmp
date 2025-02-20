@@ -25,14 +25,16 @@
  <LABELS>
   <Tabla7seg><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>28</LINE></Tabla7seg>
   <SETUP><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>30</LINE></SETUP>
-  <INIT_TMR0><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>121</LINE></INIT_TMR0>
-  <MAIN><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>70</LINE></MAIN>
-  <CONTADOR_DISPLAY><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>94</LINE></CONTADOR_DISPLAY>
-  <CONTADOR><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>88</LINE></CONTADOR>
-  <RESULTADO><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>112</LINE></RESULTADO>
-  <DELAY><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>129</LINE></DELAY>
-  <SUB_DELAY1><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>131</LINE></SUB_DELAY1>
-  <SUB_DELAY2><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>136</LINE></SUB_DELAY2>
-  <SUB_DELAY3><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>141</LINE></SUB_DELAY3>
+  <INIT_TMR0><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>138</LINE></INIT_TMR0>
+  <MAIN><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>72</LINE></MAIN>
+  <CONTADOR_DISPLAY><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>114</LINE></CONTADOR_DISPLAY>
+  <CONTADOR><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>103</LINE></CONTADOR>
+  <ALARMA><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>94</LINE></ALARMA>
+  <SALIDA_4BITS><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>108</LINE></SALIDA_4BITS>
+  <RESULTADO><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>130</LINE></RESULTADO>
+  <DELAY><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>146</LINE></DELAY>
+  <SUB_DELAY1><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>148</LINE></SUB_DELAY1>
+  <SUB_DELAY2><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>153</LINE></SUB_DELAY2>
+  <SUB_DELAY3><FILE>D:\Documents\GitHub\Laboratorio2\Laboratorio2\Laboratorio2\main.asm</FILE><LINE>158</LINE></SUB_DELAY3>
  </LABELS>
 </ASSEMBLER_INFO>

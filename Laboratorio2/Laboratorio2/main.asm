@@ -8,8 +8,8 @@
 ; Descripcion: Contador binario de 4 bits que incrementa
 ;	cada 100ms
 ; Hardware: ATMEGA328P
-; Creado: 14/02/2024
-; Ultima modificacion: 
+; Creado: 14/02/2025
+; Ultima modificacion: 19/02/2025
 ;-----------------------------------------------
 
 // Encabezado. Define registros, variables y constantes
@@ -17,8 +17,8 @@
 .cseg
 .org 0x0000
 .def COUNTER = R20		// Contador para el timer0
-.def CONTADOR7 = R21
-.def SALIDA7 = R23
+.def CONTADOR7 = R21	// Variable contador del display
+.def SALIDA7 = R23		// Salida para el display
 // Configurar de PILA
 LDI R16, LOW(RAMEND)
 OUT SPL, R16
@@ -63,14 +63,16 @@ SETUP:
 	LDI		R17, 0x7F			// Variable que guarda el estado de los botones
 	LDI		R18, 0x00			// Variable para el contador de 4 bits
 	LDI		CONTADOR7, 0x00		// Contador display 7 segmentos
-
+	LDI		R24, 0x00			// Contador repetir cada segundo
+	LDI		R25, 0x00			// Alarma de match
+	LDI		R26, 0x00			// Salida contador de 4 bits
 
 /****************************************/
 // Loop Infinito
 MAIN:
 	// Bloque que espera el Overflow del timer
 	IN		R16, TIFR0
-	CALL	CONTADOR_DISPLAY
+	CALL	CONTADOR_DISPLAY	// Se llama al bloque del contador del display
 	SBRS	R16, TOV0
 	RJMP	MAIN
 	SBI		TIFR0, TOV0		// Limpiar bandera de "overflow"
@@ -80,15 +82,32 @@ MAIN:
 	CPI		COUNTER, 10		// R20 = 10 after 100ms (since TCNT0 is set to 10 ms)
 	BRNE	MAIN
 	CLR		COUNTER			// Limpia contador para el nuevo ciclo
-	CALL	CONTADOR
+	INC		R24
+	CPI		R24, 10			// R24 cuenta hasta que se cumpla un segundo
+	BRNE	MAIN
+	CLR		R24
+	CALL	CONTADOR		// Contador de 4 bits
 	RJMP	MAIN
 
 /****************************************/
 // Sub rutinas sin interrupcion
+ALARMA:
+	LDI		R18, 0x00		// Resetea el valor del contador de 4 bits
+	SWAP	R25				// Swap del registro 000X0000 --> 0000000X
+	INC		R25				// Aumento del valor de la alarma
+	ANDI	R25, 0x01		// Mascara para el ultimo bit
+	SWAP	R25				// Regresa al estado inicial
+	RJMP	SALIDA_4BITS	// Llama a la salida del PORT B
+
 CONTADOR:
-	INC		R18
-	ANDI	R18, 0x0F
-	OUT		PORTB, R18
+	CP		CONTADOR7, R18	// Compara ambos contadores
+	BREQ	ALARMA			// De ser iguales salta a ALARMA
+	INC		R18				// Incremento del contador de 4 bits
+	ANDI	R18, 0x0F		// Mascara para no superar 4 bits
+SALIDA_4BITS:
+	MOV		R26, R18		// Copia al primer contador en el registro de salida
+	OR		R26, R25		// Combina contador y alarma
+	OUT		PORTB, R26		// Muestra la salida en los LEDS
 	RET
 
 CONTADOR_DISPLAY:
@@ -99,7 +118,6 @@ CONTADOR_DISPLAY:
 	IN		R22, PINC	// Se repite para confirmar el cambío de estado
 	CP		R17, R22	
 	BREQ	MAIN		// Regresa al inicio
-
 	MOV		R17, R22	// Guarda el estado viejo para futura comparación
 
 	// Lógica para aumento o decremento del contador
@@ -108,15 +126,13 @@ CONTADOR_DISPLAY:
 	SBRS	R22, 1		// Salta si Bit 1 de PORTC esta en 1 (apagado)
 	DEC		CONTADOR7
 	ANDI	CONTADOR7, 0x0F
-
 RESULTADO:
-	LDI		ZH, HIGH(Tabla7seg<<1)
-	LDI		ZL, LOW(Tabla7seg<<1)
-	ADD		ZL, CONTADOR7
-	LPM		SALIDA7, Z
-	OUT		PORTD, SALIDA7
-	RET
-
+	LDI		ZH, HIGH(Tabla7seg<<1)	// Parte alta de Tabla7seg que esta en la Flash
+	LDI		ZL, LOW(Tabla7seg<<1)	// Parte baja de la tabla
+	ADD		ZL, CONTADOR7			// Suma el contador al puntero Z
+	LPM		SALIDA7, Z				// Copia el valor del puntero
+	OUT		PORTD, SALIDA7			// Muestra la salida en PORT D
+	RET		// Regresa
 
 INIT_TMR0:
 	LDI		R16, (1<<CS01) | (1<<CS00)
