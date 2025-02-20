@@ -6,7 +6,8 @@
 ; Autor: Alma Mata Ixcayau
 ; Proyecto: Laboratorio 2
 ; Descripcion: Contador binario de 4 bits que incrementa
-;	cada 100ms
+;	cada 100ms. Incluye otro contador que se muestra en un 7 segmentos
+;	cuando son iguales, se activa una alarma
 ; Hardware: ATMEGA328P
 ; Creado: 14/02/2025
 ; Ultima modificacion: 19/02/2025
